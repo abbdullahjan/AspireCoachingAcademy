@@ -1,0 +1,145 @@
+:root {
+    --bg: #030708;
+    --surface: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #00ff88;
+    --gold: #ffcc00;
+    --text: #ffffff;
+    --text-dim: #94a3b8;
+}
+
+.light-theme {
+    --bg: #f4f7f6;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --accent: #0066ff;
+    --gold: #b45309;
+    --text: #0f172a;
+    --text-dim: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; transition: 0.4s ease; }
+
+.background-glow {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% -10%, rgba(0, 255, 136, 0.15), transparent 60%);
+    z-index: -1;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Navbar - Fixed horizontal layout */
+.navbar { padding: 30px 0; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+.nav-box { display: flex; justify-content: space-between; align-items: center; }
+.logo-group { display: flex; flex-direction: column; }
+.brand-name { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }
+.accent-dot { color: var(--accent); }
+.brand-tag { font-size: 0.65rem; color: var(--gold); font-weight: 600; letter-spacing: 3px; }
+
+.nav-actions { display: flex; align-items: center; gap: 15px; } /* Single line with space */
+.action-pill { 
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 10px 22px; border-radius: 100px;
+    font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+}
+.theme-switch { 
+    background: var(--accent); color: #000; border: none;
+    width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+}
+
+/* Hero */
+.hero-section { padding: 60px 0; text-align: center; }
+.trust-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 20px; border-radius: 100px;
+    background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2);
+    color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 30px;
+}
+.main-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1; margin-bottom: 25px; }
+.gradient-text { background: linear-gradient(90deg, var(--accent), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-desc { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px; }
+.btn-primary-refined { background: var(--text); color: var(--bg); padding: 18px 40px; border-radius: 12px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 15px; transition: 0.3s; }
+
+/* Bento Grid - Restructured */
+.bento-grid { display: grid; grid-template-columns: 1.8fr 1fr; gap: 20px; padding-bottom: 120px; }
+.right-stack { display: flex; flex-direction: column; gap: 20px; }
+
+.bento-card { background: var(--surface); border: 1px solid var(--border); border-radius: 30px; padding: 30px; position: relative; overflow: hidden; }
+.large { height: 420px; padding: 0; }
+.large img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+.bento-overlay { position: absolute; bottom: 30px; left: 30px; }
+
+.mini-card { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.location { display: flex; flex-direction: row; align-items: center; gap: 15px; }
+.location i { font-size: 1.5rem; color: var(--accent); }
+
+.phone-number { font-size: 1.4rem; font-weight: 900; color: var(--accent); margin-top: 5px; }
+
+/* Courses Section */
+.courses-section { padding: 80px 0; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 15px; }
+.section-desc { color: var(--text-dim); font-size: 1.1rem; }
+
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+.course-card { 
+    background: var(--surface); border: 1px solid var(--border); 
+    border-radius: 24px; padding: 35px; transition: 0.3s;
+}
+.course-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+.course-icon { 
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: grid; place-items: center; font-size: 1.5rem;
+    color: #000; margin-bottom: 20px;
+}
+
+.course-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; }
+.course-list { list-style: none; }
+.course-list li { 
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; color: var(--text-dim); font-size: 0.95rem;
+}
+.course-list i { color: var(--accent); font-size: 0.8rem; }
+
+/* Contact Section */
+.contact-section { padding: 60px 0 140px; }
+.contact-card { 
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(255, 204, 0, 0.1));
+    border: 1px solid var(--border); border-radius: 30px;
+    padding: 50px; display: flex; justify-content: space-between;
+    align-items: center; gap: 40px; flex-wrap: wrap;
+}
+
+.contact-content h2 { font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
+.contact-content p { color: var(--text-dim); font-size: 1.05rem; }
+
+.contact-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+.contact-btn { 
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); padding: 16px 28px; border-radius: 16px;
+    font-size: 0.95rem; font-weight: 600; text-decoration: none;
+    display: flex; align-items: center; gap: 10px; transition: 0.3s;
+}
+.contact-btn:hover { transform: translateY(-3px); }
+.email-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+.whatsapp-btn:hover { background: #25d366; color: white; border-color: #25d366; }
+.phone-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+
+/* Mobile */
+.mobile-bar { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 300px; height: 70px; background: rgba(10, 15, 15, 0.8); backdrop-filter: blur(20px); border-radius: 100px; display: flex; justify-content: space-around; align-items: center; border: 1px solid var(--border); z-index: 1000; }
+.bar-center { background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: grid; place-items: center; transform: translateY(-20px); }
+.bar-item { color: var(--text-dim); font-size: 1.3rem; transition: 0.3s; }
+.bar-item:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .nav-actions span { display: none; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .contact-card { padding: 35px; text-align: center; justify-content: center; }
+    .contact-actions { justify-content: center; width: 100%; }
+    .contact-btn { flex: 1; min-width: 140px; justify-content: center; }
+}
